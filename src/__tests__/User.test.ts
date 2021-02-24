@@ -7,7 +7,7 @@ describe("User", () => {
         const connection = await createConnection()
         await connection.runMigrations();
     })
-    it("Should be able to create a new user", async() => {
+    it("Deve criar um novo usuário", async() => {
 
         const response = await request(app).post("/users").send({
             email: "userdoexemplo@gmail.com",
@@ -17,7 +17,7 @@ describe("User", () => {
         expect(response.status).toBe(201)
     });
 
-    it("Should not be able to create a user with exists email",  async() => {
+    it("Não pode criar um novo usuário se o email ja existir",  async() => {
 
         const response = await request(app).post("/users").send({
             email: "userdoexemplo@gmail.com",
